@@ -246,6 +246,13 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
+// Habilita ReDoc en la ruta /redoc (documentación alternativa de solo lectura).
+app.UseReDoc(c =>
+{
+    c.RoutePrefix = "redoc";
+    c.SpecUrl("/swagger/v1/swagger.json");
+});
+
 // Redirige HTTP a HTTPS para mejorar la seguridad.
 app.UseHttpsRedirection();
 
